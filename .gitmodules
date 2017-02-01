@@ -1,0 +1,6 @@
+[submodule "PSL1GHT"]
+	path = PSL1GHT
+	url = https://github.com/ps3dev/PSL1GHT.git
+[submodule "ps3ida"]
+	path = ps3ida
+	url = https://github.com/kakaroto/ps3ida.git
