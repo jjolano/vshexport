@@ -1,6 +1,6 @@
 <?php
 $xml_file = 'exports.xml';
-$out_dir = './sysmodule_exports';
+$out_dir = './exports';
 
 if(!file_exists($out_dir))
 {
@@ -14,11 +14,17 @@ $exports = simplexml_load_file($xml_file);
 
 if(!$exports)
 {
-    die("Cannot load exports.xml\n");
+    die("Cannot load " . $xml_file . "\n");
 }
 
 foreach($exports->Group as $export)
 {
+    // exclude: Sysmodule
+    if($export[0]['name'] == "Sysmodule")
+    {
+        continue;
+    }
+
     // config.h
     $config_h = "#define LIBRARY_NAME\t\t\"" . $export[0]['name'] . "\"
 #define LIBRARY_SYMBOL\t\t" . $export[0]['name'] . "
